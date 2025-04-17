@@ -1,0 +1,1 @@
+<!-- Manual of the application and its functionnalities -->
