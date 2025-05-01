@@ -13,29 +13,42 @@ const Product = ({ product, all }) => {
       dispatch(deleteProd(product._id))
     }
   }
-  return (
-    <div>
 
-      
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src= { product.image } />
-      <Card.Body>
-        <Card.Title>{ product.title }</Card.Title>
-        <Card.Text>
-          { product.description }
-          <br />
-          {product.price} $
-        </Card.Text>
-        {all ? (<Link to = {`/products/${product._id}`}>
-        <Button variant="primary">Details</Button>
-        </Link>)
-        : (<>
-              <Button variant="danger" onClick = {handleDelete}>Delete</Button>
-              <EditProd product = {product} />
-          </>)}
-        
-      </Card.Body>
-    </Card>
+  return (
+    <div style={{ marginBottom: '30px' }}>
+      <Card style={{ width: '18rem', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}>
+        <Card.Img 
+          variant="top" 
+          src={product.image} 
+          style={{
+            height: '200px', 
+            objectFit: 'cover',
+            borderTopLeftRadius: '8px', 
+            borderTopRightRadius: '8px',
+            padding: '15px'
+          }} 
+        />
+        <Card.Body>
+          <Card.Title style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#333', marginBottom: '20px' }}>
+            {product.title}
+          </Card.Title>
+          <Card.Text style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#555' }}>
+            {product.price} $
+          </Card.Text>
+          {all ? (
+            <Link to={`/products/${product._id}`}>
+              <Button variant="primary" style={{ maxWidth: '100%', backgroundColor: '#67777f', border: 'none' }}>Details</Button>
+            </Link>
+          ) : (
+            <>
+              <Button variant="danger" onClick={handleDelete} style={{ width: '100%' }}>
+                Delete
+              </Button>
+              <EditProd product={product} />
+            </>
+          )}
+        </Card.Body>
+      </Card>
     </div>
   )
 }
