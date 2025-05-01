@@ -7,7 +7,6 @@ import LoadSpin from '../components/LoadSpin';
 
 const Register = () => {
 
-  // This is the state for the new user. It will be used to store the data entered by the user in the form
   const [newUser, setNewUser] = useState({
     name: '',
     email: '',
@@ -23,37 +22,87 @@ const Register = () => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value })
   }
   
-  // This function will be called when the user submits the form. It will send a POST request to the server with the new user's data
   const handleRegister = (e) => {
     e.preventDefault();
     dispatch(register(newUser, navigate));
-    
   }
 
   return (
-    <div className='container m-8'>
-      <h3>Register</h3>
-      
+    <div style={{
+      backgroundColor: '#f2f2f2', 
+      minHeight: '100vh', 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      padding: '20px',
+    }}>
+      <div style={{
+        backgroundColor: 'white', 
+        padding: '30px', 
+        borderRadius: '8px', 
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+        width: '100%', 
+        maxWidth: '500px',
+      }}>
+        <h3 style={{ textAlign: 'center', marginBottom: '30px' }}>Create your account</h3>
+        
         {isLoad && <LoadSpin />}
-      <Form onSubmit = {handleRegister}>
-      <Form.Group className="mb-3">
-        <Form.Control type="text" placeholder="Enter your name" name = 'name' value = {newUser.name} onChange = {handleChange} />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Control type="email" placeholder="Enter your email" name = 'email' value = {newUser.email} onChange = {handleChange} />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Control type="password" placeholder="Password" name = 'password' value = {newUser.password} onChange = {handleChange}/>
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Control type="tel" placeholder="Enter your phone number" name = 'phone' value = {newUser.phone} onChange = {handleChange}/>
-      </Form.Group>
-      <p>If you already have an account, please <a href="/login">login</a></p>
-      <Button variant="primary" type="submit">
-        Register
-      </Button>
-    </Form>
-
+        
+        <Form onSubmit={handleRegister}>
+          <Form.Group className="mb-3">
+            <Form.Control 
+              type="text" 
+              placeholder="Enter your name" 
+              name='name' 
+              value={newUser.name} 
+              onChange={handleChange} 
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Control 
+              type="email" 
+              placeholder="Enter your email" 
+              name='email' 
+              value={newUser.email} 
+              onChange={handleChange} 
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Control 
+              type="password" 
+              placeholder="Password" 
+              name='password' 
+              value={newUser.password} 
+              onChange={handleChange} 
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Control 
+              type="tel" 
+              placeholder="Enter your phone number" 
+              name='phone' 
+              value={newUser.phone} 
+              onChange={handleChange} 
+            />
+          </Form.Group>
+          <p>If you already have an account, please <a href="/login">login</a></p>
+          <Button 
+            variant="primary" 
+            type="submit" 
+            style={{
+              backgroundColor: '#4CAF50', 
+              borderColor: '#4CAF50',
+              padding: '10px 20px',
+              fontSize: '1rem',
+              fontWeight: 'bold',
+              width: '100%',
+              borderRadius: '8px',
+            }}
+          >
+            Register
+          </Button>
+        </Form>
+      </div>
     </div>
   )
 }
