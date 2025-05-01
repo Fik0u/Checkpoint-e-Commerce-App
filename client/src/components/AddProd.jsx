@@ -32,7 +32,7 @@ function AddProd() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" onClick={handleShow} style={{ backgroundColor: '#607D8B', borderRadius: '10px', border: 'none', padding: '10px', fontSize: '16px' }}>
         Add Product
       </Button>
 

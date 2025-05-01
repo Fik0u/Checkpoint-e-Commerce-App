@@ -41,7 +41,7 @@ const Product = ({ product, all }) => {
             </Link>
           ) : (
             <>
-              <Button variant="danger" onClick={handleDelete} style={{ width: '100%' }}>
+              <Button variant="danger" onClick={handleDelete} style={{ maxwidth: '100%', marginRight: '20px' }}>
                 Delete
               </Button>
               <EditProd product={product} />

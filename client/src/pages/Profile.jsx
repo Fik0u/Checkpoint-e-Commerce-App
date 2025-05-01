@@ -16,15 +16,44 @@ const Profile = () => {
   }, [dispatch])
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#f2f2f2', minHeight: '100vh', padding: '40px' }}>
       {isLoad && <LoadSpin />}
-      <h3>Hello { user.name }</h3>
-      <img src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001884.png" alt="profile" width={"300px"}/>
-      <br />
-      <AddProd /><img src="https://png.pngtree.com/png-clipart/20240804/original/pngtree-a-robot-with-blue-eye-pointing-transparent-background-png-image_15701772.png" alt="profile" width={"200px"}/>
-      <br />
-      <h4>My Products</h4>
-      <ProdsList products = {myProducts} all = {false} />
+      
+
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        marginBottom: '80px',
+        padding: '40px',
+        gap: '100px',
+        flexWrap: 'wrap'
+      }}>
+
+        <div style={{ textAlign: 'center' }}>
+          <h3>Hello {user.name}</h3>
+          <img
+            src="https://png.pngtree.com/png-vector/20240613/ourmid/pngtree-cute-cartoon-robot-face-avatar-with-new-normal-life-png-image_12710975.png"
+            alt="profile"
+            width="180px"
+            style={{ borderRadius: '50%', marginTop: '10px' }}
+          />
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <AddProd />
+          <img
+            src="https://png.pngtree.com/png-clipart/20240804/original/pngtree-a-robot-with-blue-eye-pointing-transparent-background-png-image_15701772.png"
+            alt="robot"
+            width="160px"
+            style={{ marginTop: '20px' }}
+          />
+        </div>
+      </div>
+
+
+      <h4 style={{ marginBottom: '20px' }}>My Products</h4>
+      <ProdsList products={myProducts} all={false} />
     </div>
   )
 }
