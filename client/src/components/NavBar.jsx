@@ -13,14 +13,16 @@ const NavBar = () => {
 
   return (
     <div>
-         <Navbar bg="light" data-bs-theme="light">
+         <Navbar style={{ backgroundColor: '#1f1f1f', paddingTop: '2px', paddingBottom: '2px' }} variant="dark" >
         <Container>
-          <Navbar.Brand href="/">
-            <img src="https://i.pinimg.com/originals/4b/cb/1f/4bcb1fb72d1d08efa44efa5ceb712ec7.gif" alt="brand" width={'70px'} />
+          <Navbar.Brand href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', fontWeight:'bold', fontSize: '1.2rem' }} >
+
+            <img src="https://i.pinimg.com/originals/4b/cb/1f/4bcb1fb72d1d08efa44efa5ceb712ec7.gif" alt="brand" width={'50px'} />
             GEEKS DEN
           </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+
+          <Nav style={{ marginLeft: 'auto' }}>
+            <Nav.Link style={{ color: 'white' }} href="/">Home</Nav.Link>
             {isAuth ? (
               <>
                 <Nav.Link href="/profile">Profile</Nav.Link>

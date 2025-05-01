@@ -6,6 +6,7 @@ import { deleteProd } from '../JS/actions/prodAction'
 import EditProd from './EditProd'
 
 const Product = ({ product, all }) => {
+  
   const dispatch = useDispatch()
   const handleDelete = () => {
     if(window.confirm("Are you sure you want to delete this product?")) {
